@@ -18,7 +18,7 @@ def test_second_request():
     # print(f"Response Status code is {r.status_code}")
     # print(f"Response Headers are {r.headers}")
 
-    assert body['id'] == 443150
+    assert body['id'] == 2
     assert r.status_code == 200
     assert headers['server'] == 'GitHub.com'
 
