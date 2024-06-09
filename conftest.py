@@ -6,7 +6,7 @@ class User:
     def __init__(self) -> None:
         self.name = None
         self.second_name = None
-        
+
     def create(self):
         self.name = 'Nadiia'
         self.second_name = 'Andriinko'
@@ -23,7 +23,7 @@ def user():
 
     yield user
 
-    user.remove() 
+    user.remove()
 
 
 @pytest.fixture
@@ -31,5 +31,3 @@ def github_api():
     api = GitHub()
 
     yield api
-
-   
