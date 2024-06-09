@@ -20,7 +20,7 @@ def test_check_all_users():
 def test_check_user_sergii():
     db = Database()
     user = db.get_user_address_by_name('Sergii')
-    
+
     assert user[0][0] == 'Maydan Nezalezhnosti 1'
     assert user[0][1] == 'Kyiv'
     assert user[0][2] == '3127'
@@ -32,7 +32,7 @@ def test_product_qnt_update():
     db = Database()
     db.update_product_qnt_by_id(1, 25)
     water_qnt = db.select_product_qnt_by_id(1)
-    
+
     assert water_qnt[0][0] == 25
 
 
@@ -41,7 +41,7 @@ def test_product_insert():
     db = Database()
     db.insert_product(4, 'печиво', 'солодке', 30)
     water_qnt = db.select_product_qnt_by_id(4)
-    
+
     assert water_qnt[0][0] == 30
 
 
@@ -51,15 +51,14 @@ def test_product_delete():
     db.insert_product(99, 'тестові', 'дані', 999)
     db.delete_product_by_id(99)
     qnt = db.select_product_qnt_by_id(99)
-    
+
     assert len(qnt) == 0
 
 
-@pytest.mark.database_join
+@pytest.mark.database
 def test_detailed_orders():
     db = Database()
     orders = db.get_detailed_orders()
-    #print("Orders", orders)
 
     assert len(orders) == 1
 
@@ -67,4 +66,3 @@ def test_detailed_orders():
     assert orders[0][1] == 'Sergii'
     assert orders[0][2] == 'солодка вода'
     assert orders[0][3] == 'з цукром'
-    
